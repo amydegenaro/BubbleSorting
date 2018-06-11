@@ -1,4 +1,5 @@
 function split(wholeArray) {
+  debugger;
   let mid = Math.floor(wholeArray.length/2);
   let firstHalf = wholeArray.slice(0,mid);
   let secondHalf = wholeArray.slice(mid);
@@ -27,11 +28,13 @@ function merge([firstHalf,secondHalf]) {
 // merge([[2,5], [3, 7]])
 
 function mergeSort(array) {
+  debugger;
   if(array.length===1){
     return array
   } else {
-    return merge(split(array))
+    let firstHalf = split()[0]
+    let secondHalf = split()[1]
+    return mergeSort(merge([firstHalf, secondHalf]))
   }
-
-
 }
+mergeSort([2,5,3,7])

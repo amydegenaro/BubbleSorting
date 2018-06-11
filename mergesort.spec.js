@@ -16,7 +16,7 @@ describe('Merge function', function(){
 
 describe('MergeSort function', function(){
   it('is able to sort an array', function(){
-    expect(mergeSort([[2,5,3,7]])).toEqual([2,3,5,7]);
+    expect(mergeSort([2,5,3,7])).toEqual([2,3,5,7]);
   });
 });
 
