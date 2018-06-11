@@ -1,30 +1,37 @@
+// --------------- WORKING ------------
+
 function bubbleSort(array) {
-  // const sortedArray = [];
-  if (array.length === 1) {
-    for (let i = 0; i < array.length-1; i++) {
-      if (array[i] > array[i + 1]) {
-        // update to swap in place
-        return array.concat(swap(array[i], array[i + 1]));
+    for (let i = 0; i < array.length; i++) {
+      for (let j = 1; j < array.length; j++) {
+        if (array[j-1] > array[j]) {
+          swap(array, j-1, j);
+        }
       }
     }
-  } else {
-    bubbleSort(array.slice(-1));
-  }
+    return array;
+}
+
+// swap in place
+function swap(array, first, second) {
+  const temp = array[first];
+  array[first] = array[second];
+  array[second] = temp;
 }
 
 
-// swap in place instead
-function swap(val1, val2) {
-  return [val2, val2];
-}
+// ATTEMPT AT WRITING RECURSIVELY
 
-
-// function swap(array, i, j){
-//   let temp = array[i];
-//   array[i] = array[j];
-//   array[j] = temp
-// }
-
-// while (i < array.length) {
-//   i++
+// function bubbleSort(array) {
+//   // const sortedArray = [];
+//   if (array.length === 1) {
+//     for (let i = 0; i < array.length-1; i++) {
+//       if (array[i] > array[i + 1]) {
+//         // update to swap in place
+//         swap(array[i], array[i + 1]);
+//       }
+//       return array;
+//     }
+//   } else {
+//     bubbleSort(array.slice(-1));
+//   }
 // }

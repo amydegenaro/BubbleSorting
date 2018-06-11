@@ -1,14 +1,25 @@
 describe('Bubble Sort', function(){
 
-  // beforeAll(function () {
-  //   const array = [2,5,6];
+  beforeAll(function () {
 
-  //   spyOn(bubbleSort, 'swap').and.callThrough(); // replace existing `tootsiepop['lick']` method
-  // });
-  // it('swapping an array in order takes exactly 0 swaps', function () {
-  //   bubbleSort(array);
-  //   expect(bubbleSort.swap.calls.count()).toEqual(0);
-  // });
+    spyOn(window, 'swap').and.callThrough(); // replace existing `tootsiepop['lick']` method
+  });
+
+  it('swapping an array in order takes exactly 0 swaps', function () {
+    const arrayTest = [2,5,6];
+    bubbleSort(arrayTest);
+    expect(window.swap.calls.count()).toEqual(0);
+  });
+
+  it('swapping an array out of order takes the correct amount of swaps', function () {
+    const arrayTest = [9,2,1,5,6,4];
+    // [2,1,5,6,4,9] = 5
+    // [1,2,5,4,6,9] = 2
+    // [1,2,4,5,6,9] = 1
+    bubbleSort(arrayTest);
+    expect(window.swap.calls.count()).toEqual(8);
+  });
+
 
   it('handles an empty array', function(){
     expect( bubbleSort([]) ).toEqual( [] );
