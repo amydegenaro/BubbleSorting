@@ -1,5 +1,5 @@
 function split(wholeArray) {
-  debugger;
+  // debugger;
   let mid = Math.floor(wholeArray.length/2);
   let firstHalf = wholeArray.slice(0,mid);
   let secondHalf = wholeArray.slice(mid);
@@ -16,7 +16,7 @@ function merge([firstHalf,secondHalf]) {
     if(firstHalf[leftIndex] < secondHalf[rightIndex]){
       result.push(firstHalf[leftIndex]);
       leftIndex++
-    } else if (firstHalf[leftIndex] > secondHalf[rightIndex]){
+    } else {
       result.push(secondHalf[rightIndex]);
       rightIndex++
     }
@@ -25,16 +25,18 @@ function merge([firstHalf,secondHalf]) {
   return result.concat(firstHalf.slice(leftIndex)).concat(secondHalf.slice(rightIndex));
 }
 
+// FOR DEBUGGING
 // merge([[2,5], [3, 7]])
 
 function mergeSort(array) {
   debugger;
   if(array.length===1){
-    return array
+    return array;
   } else {
-    let firstHalf = split()[0]
-    let secondHalf = split()[1]
-    return mergeSort(merge([firstHalf, secondHalf]))
+    const splitArray = split(array);
+    return merge([mergeSort(splitArray[0]), mergeSort(splitArray[1])])
   }
 }
-mergeSort([2,5,3,7])
+
+// FOR DEBUGGING
+// mergeSort([9,8,7,6,5])
